@@ -1,0 +1,7 @@
+[workspace]
+members = [
+    "fru-arrow",
+    "pyfru",
+]
+
+resolver = "3"

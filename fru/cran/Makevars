@@ -1,0 +1,18 @@
+LIBDIR = fru/target/release
+STATLIB = $(LIBDIR)/fru.a
+PKG_CPPFLAGS = -DSTRICT_R_HEADERS -DR_NO_REMAP
+PKG_LIBS = -L$(LIBDIR) -lfru
+export CARGO_HOME = $(PWD)/.cargo
+
+all: cleanup
+
+$(SHLIB): $(STATLIB)
+
+$(STATLIB):
+	mkdir -p $(CARGO_HOME)
+	PATH="${PATH}:${HOME}/.cargo/bin" cargo build --offline --release -j 2 --manifest-path=fru/Cargo.toml
+	-rm -Rf $(CARGO_HOME)
+	-rm -Rf $(LIBDIR)/build 
+
+cleanup: $(SHLIB)
+	-rm -Rf $(STATLIB) fru/target

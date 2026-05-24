@@ -1,0 +1,14 @@
+LIBDIR = fru/target/release
+STATLIB = $(LIBDIR)/fru.a
+PKG_CPPFLAGS = -DSTRICT_R_HEADERS -DR_NO_REMAP
+PKG_LIBS = -L$(LIBDIR) -lfru
+
+all: cleanup
+
+$(SHLIB): $(STATLIB)
+
+$(STATLIB):
+	cargo build --release --manifest-path=fru/Cargo.toml
+
+cleanup: $(SHLIB)
+	@rm -Rf $(STATLIB) fru/target

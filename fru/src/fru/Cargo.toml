@@ -1,0 +1,17 @@
+[package]
+name = "fru"
+version = "0.1.0"
+authors = ["Miron B. Kursa <m@mbq.me>"]
+edition = "2024"
+
+[lib]
+crate-type = ["staticlib"]
+
+[profile.release]
+strip = true
+codegen-units = 1
+lto = "fat"
+
+[dependencies]
+xrf = "0.1.5"
+

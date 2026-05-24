@@ -1,0 +1,24 @@
+Changes in 0.0.7:
+	- Ensured compatibility with Rust 1.85.
+
+Changes in 0.0.6:
+	- Fixed importance score calculation in multi-threaded
+	case.
+
+Changes in 0.0.5:
+	- Better reporting of NA values in factor features.
+	- Order cache removed as it was both incorrect and not
+	actually providing substantial speed-ups.
+
+Changes in 0.0.4:
+	* This version is incorrect; please do not use.
+	- Memory leak fixed; thanks to Tony Auckland for spotting.
+	- Fixed regression on integer decisions.
+	- Integer midpoint between a & b is now floor((a+b)/2)
+	rather than min(a,b).
+	- Improved error reporting with extract_forest().
+	- Order caching for faster training on long numeric features.
+
+Changes in 0.0.3:
+	* This version has a memory leak.
+	- First public release.
